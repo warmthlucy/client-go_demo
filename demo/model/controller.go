@@ -104,6 +104,7 @@ func (c *Controller) enqueue(obj interface{}) {
 
 func (c *Controller) construct(pod *v14.Pod) *v14.Service {
 	service := &v14.Service{
+		//这段代码会影响删除但是不会影响创建
 		ObjectMeta: v13.ObjectMeta{
 			OwnerReferences: []v13.OwnerReference{
 				*v13.NewControllerRef(pod, v14.SchemeGroupVersion.WithKind("pod")),
